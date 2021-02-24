@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       erb:'/users/login'
     end
   end
-
+  #post sign up
   post '/signup' do
     redirect 'home' if authorized?
     @user = User.new(params[:user])
@@ -38,13 +38,13 @@ class SessionsController < ApplicationController
       erb : '/users/signup'
     end
   end
-
+#Delete part in CRUD
   delete 'logout' do
     sessions.clear if logged_in?
     redirect '/'
   end
 
 
-  
+
 end
 

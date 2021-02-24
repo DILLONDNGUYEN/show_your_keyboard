@@ -38,8 +38,9 @@ class ApplicationController < Sinatra::Base
     def authorized?
       !!logged_in && !current_user.nil?
     end
-    
+
     not_found do
     erb :"error", layout: false
   end
+end
 end
