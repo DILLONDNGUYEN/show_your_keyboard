@@ -16,6 +16,9 @@ class ApplicationController < Sinatra::Base
     redirect '/home' if authorized?
     erb :welcome
   end
+  get '/images/show' do
+    redirect '../images/show'
+  end
   #need helper methods for controllers
   helpers do 
 
@@ -38,9 +41,11 @@ class ApplicationController < Sinatra::Base
     def authorized?
       !!logged_in && !current_user.nil?
     end
+     
 
     not_found do
     erb :"error", layout: false
   end
 end
+
 end
