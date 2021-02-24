@@ -18,9 +18,9 @@ class SessionsController < ApplicationController
   #post request for log in form
 
   post '/login' do
-    user = User.find_by(username : params[:username])
+    user = User.find_by(username: params[:username])
     if !!user && user.authenticate(params[:password])
-      session[:user_id = user.id]
+      session[:user_id] = [user.id]
       redirect "/home"
     else
       @failed = true
@@ -32,10 +32,10 @@ class SessionsController < ApplicationController
     redirect 'home' if authorized?
     @user = User.new(params[:user])
     if @user.save
-      session[:usr_id] = @user.id
+      session[:user_id] = @user.id
       redirect '/home'
     else
-      erb : '/users/signup'
+      erb :'/users/signup'
     end
   end
 #Delete part in CRUD
