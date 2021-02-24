@@ -23,9 +23,23 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!session[:user_id]
     end
-
+    #current user
     def current_user
       @current_user = User.find_by(id: session[:user_id])
     end
 
+    #now we need authentication, if not it goes back to log in
+    def authenticate
+      if !logged_in || current_user.nil?
+        redirect '/login'
+      end
+    end
+    #checks if logged in
+    def authorized?
+      !!logged_in && !current_user.nil?
+    end
+    
+    not_found do
+    erb :"error", layout: false
+  end
 end
