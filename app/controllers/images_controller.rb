@@ -44,59 +44,5 @@ class ImagesController < ApplicationController
         @image.save
         redirect to "/images/#{@image.id}"
       end
-    
-      # post '/images' do
-      #  # Image.create(name: params['image']['name'], year_completed: params['image']['year_completed'])
-      #   redirect '/images'
-      # end
-# 
-# 
-#       
-# 
-# 
-# 
-#       
-# post "/images" do
-#   puts "CREATING IMAGE"
-#   #Create new Image Model
-#   puts "IMAGE PARAMS #{params.inspect}"
-#   img = Image.new
-
-#   #Save the data from the request
-#   img.file    = params[:file] #carrierwave will upload the file automatically
-#   img.caption = "This is the caption" #Or recieve it from params
-
-#   #Save
-#   img.save!
-#   puts "IMAGE ATTRIBUTE:#{img.image}"
-
-#   puts "-------------ALL IMAGES-----------"
-#   puts Image.all.inspect
-#   puts "-----------------------------------"
-#   #Redirect to view
-#   # render "/images/#{img.id}"
-#   @image=img
-#   erb :"images/show"
-# end
-
-
-
-
-
-# get "/image/index" do
-#   erb :'/image/index'
-# end
-
-# post '/save_image' do
-
-#   @filename = params[:file][:filename]
-#   file = params[:file][:tempfile]
-
-#   File.open("./public/#{@filename}", 'wb') do |f|
-#     f.write(file.read)
-#   end
-
-#     erb :show
-#   end
 
 end
