@@ -7,8 +7,6 @@ end
 use Rack::MethodOverride
 use SessionsController
 use UserController
-use MealController
-use WorkoutController
-run ApplicationController
+use ImagesController
 
 run ApplicationController
