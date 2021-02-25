@@ -87,6 +87,6 @@ end
   #   authenticate
   #   @user = current_user
   #   @current
-  end
+  #end
 
-end
+#end
