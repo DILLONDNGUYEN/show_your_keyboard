@@ -19,6 +19,10 @@ class ApplicationController < Sinatra::Base
   get '/images/show' do
     redirect '../images/show'
   end
+
+  get '/terms-and-conditions.erb' do
+        erb :'users/terms-and-conditions'
+      end
   #need helper methods for controllers
   helpers do 
 
@@ -43,9 +47,9 @@ class ApplicationController < Sinatra::Base
     end
      
 
-  #   # not_found do
-  #   # erb :"error", layout: false
-  # end
+     not_found do
+     erb :"error", layout: false
+  end
 end
 
 end
