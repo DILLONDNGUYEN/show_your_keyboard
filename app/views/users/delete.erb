@@ -1,0 +1,8 @@
+<p><%= @user.username %>
+
+<form method="post" action="/users/<%=@user.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete User">
+</form>
+
+<a href="/tweets/<%=@user.id%>/edit">Edit</a>
