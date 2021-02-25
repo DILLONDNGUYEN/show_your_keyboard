@@ -7,14 +7,14 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    #set :session_secret, SESSION_SECRET
+    # set :session_secret, ENV['SESSION_SECRET']
   end
 
   #first thing we see- welcome
 
   get "/" do
     redirect '/home' if authorized?
-    erb :welcome
+    erb :home
   end
   get '/images/show' do
     redirect '../images/show'

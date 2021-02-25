@@ -1,0 +1,39 @@
+<div class ="boom"> 
+  <form  action="/users" method="POST" onsubmit="myFunction()">
+    <div class= "form-group0">
+      <label>Sign Up</label>
+    </div>
+    <div class="form-group col-md-6">
+        <label>User Name</label>
+        <input type="username" name= "username" class="form-control" id="username" placeholder="username">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="email@example.com">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="password">
+    </div>
+    
+  
+    
+    <div class="form-group">
+          <label for="tac">
+        <h4>
+            <input id="tac" type="checkbox" name="terms-and-conditions" >
+            I agree to the Terms and Conditions
+        </h4>
+      </label>
+        <p>
+        <a href="/terms-and-conditions.erb">Read our Terms and Conditions</a>
+        </p>
+        <div class= "butt">
+          <input type="submit" class="btn btn-primary" value="Sign Up" id="signup"/>
+        </div>
+    </div>
+
+  </form>
+</div>
