@@ -8,6 +8,7 @@ gem 'require_all'
 gem 'thin'
 gem 'shotgun'
 gem 'bcrypt'
+gem 'sinatra-flash'
 gem 'carrierwave'
 
 group :test do

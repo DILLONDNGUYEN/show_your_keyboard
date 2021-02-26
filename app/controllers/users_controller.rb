@@ -1,5 +1,5 @@
 class UserController < ApplicationController
- 
+
   get '/users' do
         @users = User.all
         erb :'users/index'
@@ -10,13 +10,13 @@ class UserController < ApplicationController
         erb :'users/new'
     end
   
-    # get '/users' do #signup
-    #   if !logged_in?
-    #     erb :'users/new', locals: {message: "Please sign up before you sign in"}
-    #   else
-    #     redirect to '/images'
-    #   end
-    # end
+    get '/users' do #signup
+      if !logged_in?
+        erb :'users/new', locals: {message: "Please sign up before you sign in"}
+      else
+        redirect to '/images'
+      end
+    end
 
     get "/users/:id" do 
       @images=[]
@@ -57,7 +57,7 @@ class UserController < ApplicationController
       if @user && @user.update(username:params[:username], email:params[:email])
        redirect "/users/#{@user.id}"
       else 
-        # flash[:error_edit] = "No user has this name"
+        
         redirect to '/login'
       end
     end
