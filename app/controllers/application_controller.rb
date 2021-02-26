@@ -16,12 +16,13 @@ class ApplicationController < Sinatra::Base
     redirect '/home' if authorized?
     erb :home
   end
+  
   get '/images/show' do
     redirect '../images/show'
   end
 
-  get '/terms-and-conditions.erb' do
-        erb :'users/terms-and-conditions'
+  get '/termsandconditions.erb' do
+        erb :'users/termsandconditions'
       end
   #need helper methods for controllers
   helpers do 
