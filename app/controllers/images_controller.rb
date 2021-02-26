@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
-    get '/images' do
+    
+  #create
+      get '/images' do
         @images = Image.all
         @users = User.all
         erb :'images/index'

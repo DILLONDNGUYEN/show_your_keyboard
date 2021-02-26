@@ -11,7 +11,7 @@ get '/sessions/login' do
     end
 
    
-    #show the log in page and open a session if user info are authentic
+    #show the log in page, opens a session if user info are authentic or not
    
     post '/login' do
       # puts params.inspect
@@ -23,10 +23,10 @@ get '/sessions/login' do
         redirect to '/users/new'
       end
     end
-  
+  #delete
     get '/sessions/logout' do
       if logged_in?
-        session.destroy
+        session.clear
         redirect to '/'
       else
         redirect to '/'

@@ -13,28 +13,37 @@ class ApplicationController < Sinatra::Base
   #first thing we see- welcome
 
   get "/" do
-    redirect '/home' if authorized?
+    #redirect '/home' if authorized?
     erb :home
   end
   
-  get '/images/show' do
-    redirect '../images/show'
-  end
-
-  get '/termsandconditions.erb' do
-        erb :'users/termsandconditions'
-      end
   #need helper methods for controllers
   helpers do 
+    
+    def logged_in?
+      !!current_user
+    end
+    
+    def current_user
+      @current_user = User.find_by(id: session[:user_id])
+    end
+    
+    get '/images/show' do
+      redirect '../images/show'
+    end
 
+    get '/termsandconditions.erb' do
+      erb :'users/termsandconditions'
+    end
+
+    get '/users/show' do
+      redirect '..users/show'
+    end
     #checks if we're logged in or not
     def logged_in?
       !!session[:user_id]
     end
     #current user
-    def current_user
-      @current_user = User.find_by(id: session[:user_id])
-    end
 
     #now we need authentication, if not it goes back to log in
     def authenticate
