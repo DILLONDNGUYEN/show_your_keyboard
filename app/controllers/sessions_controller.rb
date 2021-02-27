@@ -9,15 +9,16 @@ get '/sessions/login' do
         erb:"sessions/login"
       end
     end
-
-   
+    
+    
     #show the log in page, opens a session if user info are authentic or not
-   
+    
     post '/login' do
       # puts params.inspect
       user = User.find_by(:email => params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
+        #binding.pry
         redirect "users/#{user.id}"
       else
         redirect to '/users/new'
