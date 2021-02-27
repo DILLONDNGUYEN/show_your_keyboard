@@ -13,7 +13,6 @@ class ImagesController < ApplicationController
     
       get '/images/:id' do
         @image = Image.find(params[:id])
-        # puts "IMAGE #{@image.inspect}"
         erb :"images/show"
       end
     
@@ -24,7 +23,6 @@ class ImagesController < ApplicationController
 
       post '/images' do
         puts "===================================="
-        # puts params.inspect
         puts "===================================="
         @filename = params[:file][:filename]
         file = params[:file][:tempfile]
