@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect "users/#{user.id}"
       else
-        flash[:error] = "Please Sign up First!"
+        flash[:error] = "User not found, please Sign up First!"
         redirect to '/users/new'
       end
     end
