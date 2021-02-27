@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_063832) do
 
   create_table "images", force: :cascade do |t|
     t.string "url"
+    t.string "image"
     t.integer "user_id"
     t.text "file"
     t.text "caption"

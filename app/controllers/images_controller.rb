@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord'
+
 class ImagesController < ApplicationController
     
   #create
@@ -26,10 +28,10 @@ class ImagesController < ApplicationController
         puts "===================================="
         @filename = params[:file][:filename]
         file = params[:file][:tempfile]
-        @image= Image.create!(url:@filename)
+        @image= Image.create(url:@filename)
         current_user.images << @image
 
-        File.open("./public/#{@image.url}", 'wb') do |f|
+        File.open("./public/images/#{@image.url}", 'wb') do |f|
           f.write(file.read)
         end
         

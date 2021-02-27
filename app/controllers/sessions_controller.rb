@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
- 
-get '/sessions/login' do 
+
+  get '/login' do 
       if logged_in?
         user_id = session[:user_id]
         # puts @user.id.inspect
+        #binding.pry
         redirect to "users/#{user_id}"
       else
         erb:"sessions/login"
@@ -18,9 +19,9 @@ get '/sessions/login' do
       user = User.find_by(:email => params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        #binding.pry
         redirect "users/#{user.id}"
       else
+        flash[:error] = "Please Sign up First!"
         redirect to '/users/new'
       end
     end

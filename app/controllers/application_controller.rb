@@ -1,6 +1,8 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
+  register Sinatra::Flash
 
   #Assists in the setup
   configure do
@@ -40,9 +42,9 @@ class ApplicationController < Sinatra::Base
       redirect '..users/show'
     end
     #checks if we're logged in or not
-    def logged_in?
-      !!session[:user_id]
-    end
+    # def logged_in?
+    #   !!session[:user_id]
+    # end
     #current user
 
     #now we need authentication, if not it goes back to log in

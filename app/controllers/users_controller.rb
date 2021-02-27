@@ -19,6 +19,7 @@ class UserController < ApplicationController
     end
 
     get "/users/:id" do 
+     redirect to '/login' if !logged_in?  
       @images=[]
       @image=""
       @user=User.find_by(id:params[:id])
@@ -72,7 +73,7 @@ class UserController < ApplicationController
           redirect to '/users'
         end
       else
-        redirect to 'sessions/login'
+        redirect to '/login'
       end
 
   end
