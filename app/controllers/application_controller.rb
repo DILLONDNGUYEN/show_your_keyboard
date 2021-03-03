@@ -19,6 +19,17 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
   
+  get '/images/show' do
+    redirect '../images/show'
+  end
+
+  get '/termsandconditions.erb' do
+    erb :'users/termsandconditions'
+  end
+
+  get '/users/show' do
+    redirect '..users/show'
+  end
   #need helper methods for controllers
   helpers do 
     
@@ -30,17 +41,6 @@ class ApplicationController < Sinatra::Base
       @current_user = User.find_by(id: session[:user_id])
     end
     
-    get '/images/show' do
-      redirect '../images/show'
-    end
-
-    get '/termsandconditions.erb' do
-      erb :'users/termsandconditions'
-    end
-
-    get '/users/show' do
-      redirect '..users/show'
-    end
     #checks if we're logged in or not
     # def logged_in?
     #   !!session[:user_id]
@@ -57,11 +57,11 @@ class ApplicationController < Sinatra::Base
     def authorized?
       !!logged_in? && !current_user.nil?
     end
-     
-
-     not_found do
-     erb :"error", layout: false
+    
   end
+
+  not_found do
+  erb :"error", layout: false
 end
 
 end
