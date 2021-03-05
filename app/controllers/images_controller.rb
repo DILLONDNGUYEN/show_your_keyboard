@@ -56,4 +56,22 @@ class ImagesController < ApplicationController
         redirect to "/images/#{@image.id}"
       end
 
+      patch '/images/:id' do
+        @image =Image.find_by(id: params[:id])
+        authorized?(@image)
+        if @image.update(params[:image])
+          redirect '/images'
+        else
+          erb :"/images/show"
+        end
+      end
+
+      delete '/images/:id' do
+        authorized?(image)
+        if image
+          image.destroy
+        redirect "/images"
+        end
+      end
+
 end
