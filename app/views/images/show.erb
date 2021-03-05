@@ -7,5 +7,18 @@
         <h1>See Image</h1>
          <%= @image.url %>
          <img src="/images/<%= @image.url %>" alt="<%=@image.url%>">
+
+        <%if authorized? && @image.user == current_user%> 
+        <form method="post" action="/images/<%=@image.id%>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Image">
+        </form>
+
+        <%# <%redirect to "/user/#{@user.id}"%> 
+
+
+        <%end%>
+         
+
     </body>
 </html>

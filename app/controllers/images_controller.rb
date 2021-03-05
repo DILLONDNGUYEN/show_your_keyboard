@@ -58,19 +58,20 @@ class ImagesController < ApplicationController
 
       patch '/images/:id' do
         @image =Image.find_by(id: params[:id])
-        authorized?(@image)
+        authorized?
         if @image.update(params[:image])
-          redirect '/images'
+          redirect '/users'
         else
           erb :"/images/show"
         end
       end
 
-      delete '/images/:id' do
-        authorized?(image)
+      delete '/images/:id/delete' do
+        image = Image.find_by(id: params[:id])
+        authorized?
         if image
           image.destroy
-        redirect "/images"
+          redirect '/users'
         end
       end
 

@@ -57,6 +57,16 @@ class ApplicationController < Sinatra::Base
     def authorized?
       !!logged_in? && !current_user.nil?
     end
+
+    def authorize_delete_image(image)
+      redirect '/images' if !image
+      redirect '/images' if current_user != image.user
+    end  
+
+    def authorize_delete_user(user)
+      redirect '/users' if !user
+      redirect '/users' if current_user != user
+    end
     
   end
 
